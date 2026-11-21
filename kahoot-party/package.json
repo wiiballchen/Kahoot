@@ -1,0 +1,19 @@
+{
+  "name": "kahoot-party-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "多人即時問答派對遊戲：共 8 題（含 1 題暖身題）、10 秒作答、即時排行榜",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  }
+}

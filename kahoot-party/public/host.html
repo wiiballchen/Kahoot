@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21114b">
+  <title>主持人控制台｜派對快問快答</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/host.css">
+</head>
+<body class="host-body">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="host-shell">
+    <header class="host-header">
+      <a href="/" class="brand-row brand-link"><div class="brand-mark">Q!</div><div><div class="brand-name">派對快問快答</div><div class="brand-caption">HOST CONTROL CENTER</div></div></a>
+      <div id="hostUser" class="host-user hidden"><span>主持人模式</span><button id="logoutBtn" class="ghost-btn">登出</button></div>
+    </header>
+
+    <section id="loginPanel" class="panel host-login">
+      <div class="eyebrow">HOST ACCESS</div><h1>主持人登入</h1><p class="muted">登入後即可編輯題目、建立房間與控制遊戲進度。</p>
+      <form id="loginForm"><label for="hostPassword">主持人密碼</label><input id="hostPassword" type="password" autocomplete="current-password" placeholder="輸入主持人密碼" required><button class="primary-btn full-btn">登入控制台 →</button></form>
+      <div id="loginError" class="error-msg"></div>
+    </section>
+
+    <div id="hostApp" class="hidden">
+      <section class="panel host-intro">
+        <div><div class="eyebrow">LIVE QUIZ CONTROL</div><h1>遊戲主持台</h1><p class="muted">先確認題目，再建立遊戲房間。賓客用手機掃描 QR Code 或輸入 PIN 加入。</p></div>
+        <div class="game-stat"><strong id="playerCount">0</strong><span>位參賽者</span></div>
+      </section>
+
+      <section class="panel host-room-panel">
+        <div class="section-heading"><div><div class="eyebrow">ROOM & CONTROL</div><h2>遊戲房間</h2></div><span id="phaseTag" class="status-tag">尚未建立</span></div>
+        <div id="noRoom" class="no-room"><p>目前沒有進行中的遊戲。</p><button id="createRoomBtn" class="primary-btn">＋ 建立新遊戲房間</button></div>
+        <div id="roomActive" class="room-layout hidden">
+          <div class="room-main"><div class="pin-label">GAME PIN</div><div id="roomPin" class="room-pin">------</div><div class="join-link-row"><code id="joinLink"></code><button id="copyLinkBtn" class="ghost-btn">複製連結</button></div><button id="startQuestionBtn" class="primary-btn start-btn">開始暖身題 →</button><div id="hostNotice" class="host-notice">等待賓客加入…</div></div>
+          <div class="qr-card"><img id="qrImage" alt="賓客掃描加入遊戲的 QR Code"><div>掃描 QR Code 加入</div></div>
+        </div>
+      </section>
+
+      <section id="livePanel" class="panel live-panel hidden">
+        <div class="section-heading"><div><div class="eyebrow">ROUND MONITOR</div><h2 id="liveTitle">目前題目</h2></div><div id="answerCount" class="answer-count">0 / 0 已作答</div></div>
+        <div id="liveQuestion" class="live-question">尚未開始</div>
+        <div id="hostTimerWrap" class="host-timer-wrap hidden"><strong id="hostTimer">10</strong><div class="timer-track"><div id="hostTimerBar" class="timer-bar"></div></div></div>
+        <div id="hostOptions" class="host-options"></div>
+        <div id="hostCorrect" class="host-correct hidden"></div>
+        <div class="host-board-heading">目前累積前 10 名</div>
+        <div id="hostLeaderboard" class="leaderboard-list"></div>
+      </section>
+
+      <section class="panel editor-panel">
+        <div class="section-heading"><div><div class="eyebrow">QUESTION EDITOR</div><h2>題目與答案設定</h2><p class="muted editor-hint">共 8 題：第 1 題是暖身題，其餘 7 題是正式題。每題固定 4 個選項。</p></div><button id="saveQuestionsBtn" class="primary-btn save-btn">儲存全部題目</button></div>
+        <div id="questionEditor" class="question-editor"></div>
+        <div id="saveMessage" class="save-message"></div>
+      </section>
+      <footer class="host-footer">單一房間・即時同步・伺服器計時與計分</footer>
+    </div>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/host.js"></script>
+</body>
+</html>

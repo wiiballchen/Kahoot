@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#21114b">
+  <title>派對快問快答</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="player-body">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="player-shell">
+    <header class="brand-row">
+      <div class="brand-mark">Q!</div>
+      <div><div class="brand-name">派對快問快答</div><div class="brand-caption">JOIN THE GAME · PLAY TO WIN</div></div>
+    </header>
+
+    <section id="joinScreen" class="panel join-panel">
+      <div class="eyebrow">READY, PLAYER?</div>
+      <h1>準備好挑戰了嗎？</h1>
+      <p class="muted">輸入主持人提供的遊戲代碼，再取一個響亮的暱稱！</p>
+      <form id="joinForm" class="join-form">
+        <label for="pinInput">遊戲 PIN</label>
+        <input id="pinInput" name="pin" inputmode="numeric" maxlength="6" placeholder="例如：482931" required autocomplete="one-time-code">
+        <label for="nameInput">你的暱稱</label>
+        <input id="nameInput" name="name" maxlength="16" placeholder="輸入暱稱（最多 16 字）" required autocomplete="nickname">
+        <button class="primary-btn full-btn" type="submit">加入遊戲 <span>→</span></button>
+      </form>
+      <div id="joinError" class="error-msg" role="alert"></div>
+      <div class="join-foot">每題 10 秒・答對才得分・答越快分數越高</div>
+    </section>
+
+    <section id="gameScreen" class="hidden">
+      <div class="player-topline"><span id="playerNameTag" class="name-chip"></span><span id="playerScoreTag" class="score-chip">0 分</span></div>
+      <section id="waitingView" class="panel state-panel hidden">
+        <div class="pulse-orbit"><div>⌛</div></div>
+        <div class="eyebrow">YOU'RE IN!</div><h1>已成功加入</h1>
+        <p class="muted">等待主持人開始遊戲，準備搶答！</p>
+        <div class="room-pill">PIN <strong id="waitingPin"></strong></div>
+      </section>
+
+      <section id="questionView" class="panel question-panel hidden">
+        <div class="question-meta"><span id="questionBadge" class="round-badge">暖身題</span><span id="questionNumber" class="question-number">第 1 / 9 題</span></div>
+        <div class="timer-wrap"><div id="timerText" class="timer-text">10</div><div class="timer-track"><div id="timerBar" class="timer-bar"></div></div></div>
+        <h1 id="questionText" class="question-text"></h1>
+        <div id="answerGrid" class="answer-grid">
+          <button class="answer-option option-0" data-choice="0"><span class="option-shape">▲</span><span class="option-label"></span></button>
+          <button class="answer-option option-1" data-choice="1"><span class="option-shape">◆</span><span class="option-label"></span></button>
+          <button class="answer-option option-2" data-choice="2"><span class="option-shape">●</span><span class="option-label"></span></button>
+          <button class="answer-option option-3" data-choice="3"><span class="option-shape">■</span><span class="option-label"></span></button>
+        </div>
+        <div id="answerStatus" class="answer-status">選出你認為正確的答案！</div>
+      </section>
+
+      <section id="leaderboardView" class="panel leaderboard-panel hidden">
+        <div class="eyebrow" id="leaderEyebrow">ROUND COMPLETE</div>
+        <h1 id="leaderTitle">本題排行榜</h1>
+        <p class="muted" id="correctReveal"></p>
+        <div id="myRoundResult" class="my-result"></div>
+        <div id="leaderboardList" class="leaderboard-list"></div>
+        <div class="leader-foot">排行榜即時更新中 ✨</div>
+      </section>
+
+      <section id="finishedView" class="panel leaderboard-panel final-panel hidden">
+        <div class="eyebrow">GAME OVER</div><h1>最終排行榜</h1>
+        <p class="muted">8 題正式題全部結束，恭喜得獎者！</p>
+        <div id="finalMyResult" class="my-result"></div>
+        <div id="finalLeaderboardList" class="leaderboard-list"></div>
+        <div class="leader-foot">謝謝參加！請看主持人公布前三名 🎉</div>
+      </section>
+    </section>
+    <footer class="site-foot">POWERED BY REAL-TIME QUIZ</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/player.js"></script>
+</body>
+</html>

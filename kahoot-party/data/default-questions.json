@@ -1,0 +1,98 @@
+[
+  {
+    "type": "warmup",
+    "question": "【暖身題】一個星期有幾天？",
+    "options": [
+      "5 天",
+      "6 天",
+      "7 天",
+      "8 天"
+    ],
+    "correctIndex": 2,
+    "explanation": "星期一到星期日，一共有 7 天。"
+  },
+  {
+    "type": "regular",
+    "question": "臺灣最高的山是哪一座？",
+    "options": [
+      "雪山",
+      "玉山",
+      "秀姑巒山",
+      "南湖大山"
+    ],
+    "correctIndex": 1,
+    "explanation": "玉山主峰海拔約 3,952 公尺。"
+  },
+  {
+    "type": "regular",
+    "question": "太陽系中體積最大的行星是哪一顆？",
+    "options": [
+      "地球",
+      "土星",
+      "木星",
+      "海王星"
+    ],
+    "correctIndex": 2,
+    "explanation": "木星是太陽系中體積最大的行星。"
+  },
+  {
+    "type": "regular",
+    "question": "1 Byte（位元組）等於幾個 bit（位元）？",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "32"
+    ],
+    "correctIndex": 1,
+    "explanation": "1 Byte = 8 bits。"
+  },
+  {
+    "type": "regular",
+    "question": "日本的首都是哪裡？",
+    "options": [
+      "大阪",
+      "京都",
+      "札幌",
+      "東京"
+    ],
+    "correctIndex": 3,
+    "explanation": "日本首都是東京。"
+  },
+  {
+    "type": "regular",
+    "question": "水的化學式是什麼？",
+    "options": [
+      "CO₂",
+      "O₂",
+      "H₂O",
+      "NaCl"
+    ],
+    "correctIndex": 2,
+    "explanation": "水分子由兩個氫原子和一個氧原子組成。"
+  },
+  {
+    "type": "regular",
+    "question": "一般平年的天數有幾天？",
+    "options": [
+      "364 天",
+      "365 天",
+      "366 天",
+      "367 天"
+    ],
+    "correctIndex": 1,
+    "explanation": "平年有 365 天，閏年有 366 天。"
+  },
+  {
+    "type": "regular",
+    "question": "臺灣目前使用的貨幣名稱是什麼？",
+    "options": [
+      "人民幣",
+      "港幣",
+      "新臺幣",
+      "日圓"
+    ],
+    "correctIndex": 2,
+    "explanation": "臺灣使用新臺幣。"
+  }
+]
